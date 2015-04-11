@@ -1,0 +1,4 @@
+services:
+#    ahora_madrid_microcreditos.example:
+#        class: AhoraMadrid\MicrocreditosBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
