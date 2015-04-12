@@ -1,0 +1,16 @@
+h1 {
+  font-family: ubuntu, sans;
+  /* Microcréditos: */
+  font-size: 95px;
+  color: #FFFFFF;
+  line-height: 110px;
+  font-weight: 700;
+}
+p.ubuntu {
+  font-family: ubuntu, sans;
+  font-size: 18px;
+  color: #FFFFFF;
+  line-height: 21px;
+  font-weight: 700;
+  text-align: center;
+}

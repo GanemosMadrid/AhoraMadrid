@@ -1,6 +1,46 @@
 {% extends 'AhoraMadridMicrocreditosBundle::layout.html.twig' %}
 
 {% block body %}
-	<h1>Inicio</h1>
-	<div><a href="{{ path('formulario') }}">Enlace al formulario</a></div>
+ <div class="main-container">       
+ 			<div id="page1">
+                <div class="container">
+                    <div class="row" style="margin-top: " >                       
+                        <div class="col-md-2 col-md-offset-5">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: " >                       
+                        <div class="col-md-2 col-md-offset-5">
+                        	<h1>Microcréditos</h1>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: " >                       
+                        <div class="col-md-8 col-md-offset-2">
+                        	<p class="ubuntu"> 
+                        		ahoraMadrid es una candidatura ciudadana para recuperar la ciudad de Madrid. Para poder financiarnos en el camino que nos queda hasta las elecciones no queremos depender del dinero que nos presten los bancos. Queremos depender de ti. Por eso necesitamos tu ayuda para contribuir a la campaña electoral independiente. 
+                        		<br/>
+								No te pedimos una donación sino un pequeño prestamo a recuperar tras las elecciones.
+                        	</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: " > 
+						<div class="col-md-8 col-md-offset-2">
+                        	<p class="ubuntu"> 
+                        		Tenemos la mejor candidatura para cambiar Madrid. 
+								¿Nos ayudas a que todos vecinos de la ciudad la conozcan?
+                        	</p>
+                        	
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: " > 
+						<div class="col-md-8 col-md-offset-2">
+							<a href="{{ path('formulario') }}" class="button">¡Financianos!</a>
+						</div>
+					</div>
+                </div>
+             </div>   
+
+
+</div>
+
+	
 {% endblock %}
