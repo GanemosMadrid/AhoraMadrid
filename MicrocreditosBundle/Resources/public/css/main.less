@@ -4,7 +4,13 @@ h1{
 	font-size: 95px;
 	color: #FFFFFF;
 	line-height: 110px;
-	font-weight: 700;
+	text-align: center;
+}
+body,html,.main-container{
+
+	height:100%;
+	width:100%;
+	font-family: 'open sans','helvetica', arial;
 }
 
 p.ubuntu{
@@ -12,6 +18,142 @@ p.ubuntu{
 	font-size: 18px;
 	color: #FFFFFF;
 	line-height: 21px;
-	font-weight: 700;
+		font-weight: 300;
+
 	text-align: center;
+}
+div#page1{
+	background: #00A48C;
+	height: 100%;
+}
+#page1, #agradecimientos{
+	a.btn{
+		/* ¡Fináncianos!: */
+		font-family: ubuntu, sans;
+		font-size: 32px;
+		color: #00A48C;
+		line-height: 37px;
+		transition: all 0.5s;
+		/* Rectangle 28: */
+		background: #FFFFFF;
+		box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+		border-radius: 5px;
+		text-decoration: none;
+		&:hover{
+			box-shadow: none;
+			color:#D95B43;
+			background: #FFFFFF;
+		}
+	}
+	a {
+		/* ¿Quieres saber más s: */
+font-family: 'open sans','helvetica', arial;
+font-size: 18px;
+color: #FFFFFF;
+line-height: 24px;
+text-decoration: underline;
+	}
+}
+.row div::before{
+	margin-top:5%;
+}
+span.ahora{
+	color:#00A48C;
+	font-weight: bold;
+}
+
+#page-faq{
+	text-align: center;
+	background: #fff;
+	height: 100%;
+	h2{	
+		font-family: ubuntu, sans;
+		font-size: 24px;
+		color: #4A4A4A;
+		line-height: 28px;
+		font-weight: 500;
+		margin-top:2em;
+		margin-bottom:1em;
+	}
+	p{
+		/* Según todas las encu: */
+		opacity: 0.9;
+		font-family: 'open sans','helvetica', arial;
+		font-size: 18px;
+		color: #4A4A4A;
+		line-height: 24px;
+
+	}
+	a.btn{
+		/* ¡Fináncianos!: */
+		font-family: ubuntu, sans;
+		font-size: 32px;
+		color: #fff;
+		line-height: 37px;
+		transition: all 0.5s;
+		/* Rectangle 28: */
+		background: #00A48C;
+		box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+		border-radius: 5px;
+		text-decoration: none;
+		&:hover{
+			box-shadow: none;			
+		}
+	}
+
+}
+#footer{
+	
+	margin-top:5em;
+	background-color: #00A48C;
+	.container{
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+}
+
+
+#formularios{
+	h2{	
+		font-family: ubuntu, sans;
+		font-size: 24px;
+		color: #4A4A4A;
+		line-height: 28px;
+		font-weight: 500;
+		margin-top:2em;
+		margin-bottom:1em;
+	}
+	div.radio{
+		display: inline-block;
+		
+		border-radius: 5px;
+		text-decoration: none;
+		border:1px #00A48C solid;
+		padding:1em 2em;
+		margin:1% 5%; 
+	}
+	div.radio:selected{
+		box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+	}
+	div#ahoramadrid_microcreditosbundle_credito_importe{
+		border:0px;
+		height: auto;
+		box-shadow: none;
+	}
+	label{
+		/* Nombre: */
+		font-family: 'open sans','helvetica', arial;
+		font-size: 16px;
+		font-weight: bold;
+		color: #4A4A4A;
+		line-height: 22px;
+	}
+	#legal{
+		padding:2em;
+		border: 1px #333 solid;
+		border-radius: 5px;
+		max-height: 400px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
 }

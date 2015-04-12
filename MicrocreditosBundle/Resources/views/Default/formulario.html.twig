@@ -3,18 +3,112 @@
 {% form_theme form 'AhoraMadridMicrocreditosBundle::form_theme.html.twig' %}
 
 {% block body %}
-	<h1>Formulario</h1>
-	{{ form_start(form, {'attr': {'role': 'form', 'id': 'form0'}}) }}
-    {{ form_errors(form) }}
-	<div>{{ form_row(form.nombre, {'attr': {'class': 'form-control'}, 'label': 'Nombre'}) }} *</div>
-	<div>{{ form_row(form.apellidos, {'attr': {'class': 'form-control'}, 'label': 'Apellidos'}) }} *</div>
-	<div>{{ form_row(form.documentoIdentidad, {'attr': {'class': 'form-control'}, 'label': 'Documento de identidad'}) }} *</div>
-	<div>{{ form_row(form.correoElectronico, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} *</div>
-	<div>{{ form_row(form.pais, {'attr': {'class': 'form-control'}, 'label': 'País'}) }} *</div>
-	<div>{{ form_row(form.provincia, {'attr': {'class': 'form-control'}, 'label': 'Provincia'}) }} *</div>
-	<div>{{ form_row(form.municipio, {'attr': {'class': 'form-control'}, 'label': 'Municipio'}) }} *</div>
-	<div>{{ form_row(form.codigoPostal, {'attr': {'class': 'form-control'}, 'label': 'Código postal'}) }} *</div>
-	<div>{{ form_row(form.direcccion, {'attr': {'class': 'form-control'}, 'label': 'Direccción'}) }} *</div>
-	<div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} *</div>
-	{{ form_end(form) }}
+<div class="main-container">       
+	<div id="formularios">
+	    <div class="container">
+	        <div class="row" style="margin-top: 4% " >                       
+	            <div class="col-md-2 col-md-offset-5">
+	            	<div style="padding-left:50%">
+	            		<img src="{{ asset('bundles/ahoramadridmicrocreditos/images/logo2.png') }}" class="img-responsive" >
+	            	</div>
+	            </div>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-6 col-md-offset-3">
+	        		El objetivo de la campaña de recaudación es es de 40000€
+	        	</div>
+	        </div>
+	        <div class="row">                    	
+	            	<div class="col-md-12 ">
+	            		<h2> ¿cuanto quieres prestar? </h2>
+	            			{{ form_start(form, {'attr': {'role': 'form', 'id': 'form0'}}) }}
+						    {{ form_errors(form) }}
+						    <div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} </div>
+					</div>
+			</div>
+		    <div class="row">
+		    	<div class="col-md-12 ">
+			    	<div class="col-md-4 ">
+						<div>{{ form_row(form.nombre, {'attr': {'class': 'form-control'}, 'label': 'Nombre'}) }} </div>
+					</div>
+					<div class="col-md-5 ">
+						<div>{{ form_row(form.apellidos, {'attr': {'class': 'form-control'}, 'label': 'Apellidos'}) }} </div>
+					</div>	
+				</div>									
+			</div>
+			<div class="row">
+		    	<div class="col-md-4 ">
+		    		<div class="col-xs-12 ">
+		    			<div>{{ form_row(form.correoElectronico, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} </div>
+		    		</div>
+		    		<div class="col-xs-12 ">
+						<div>{{ form_row(form.documentoIdentidad, {'attr': {'class': 'form-control'}, 'label': 'Documento de identidad'}) }} </div>
+					</div>
+		    	</div>
+		    	<div class="col-md-8 ">
+		    		<div class="col-md-8 ">
+		    			<div>{{ form_row(form.direcccion, {'attr': {'class': 'form-control'}, 'label': 'Direccción'}) }} </div>
+		    		</div>
+		    		<div class="col-md-4">
+						<div>{{ form_row(form.codigoPostal, {'attr': {'class': 'form-control'}, 'label': 'Código postal'}) }} </div>
+		    		</div>
+		    		<div class="col-md-8">
+		    			<div>{{ form_row(form.municipio, {'attr': {'class': 'form-control'}, 'label': 'Municipio'}) }} </div>
+		    		</div>
+		    		<div class="col-md-4">
+						<div>{{ form_row(form.provincia, {'attr': {'class': 'form-control'}, 'label': 'Provincia'}) }} </div>
+		    		</div>
+		    		<div class="col-md-8">
+						<div>{{ form_row(form.pais, {'attr': {'class': 'form-control'}, 'label': 'País'}) }} </div>
+					</div>				
+		    	</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div id="legal">
+						<h2>MICROCRÉDITOS CONTRATO CIVIL DE SUSCRIPCIÓN DE MICROCRÉDITOS DE AHORA MADRID CONDICIONES GENERALES </h2>
+<p>
+1. El Partido Político AHORA MADRID, con CIF G87218962, con domicilio en Madrid, cl Aquitania, 39, 1ºB, 28032 ofrece para su suscripción un Préstamo Civil de acuerdo a las siguientes Condiciones Generales. 
+</p><p>
+2. El préstamo podrá otorgarse por tramos de 100 €, 300 €, 500 € y 1.000€ La cantidad máxima a suscribir nominalmente por cualquier persona física no podrá superar la cantidad de 10.000 € en el total de sus suscripciones. 
+</p><p>3. La cantidad total que se ofrecerá a suscripción por todos los inscritos, simpatizantes y personas en general será de un máximo de 150.000 € (CIENTO CINCUENTA MIL EUROS), que se aplicarán exclusivamente para sufragar los gastos electorales en dichas elecciones en función de los resultados esperados. Cualquier persona tiene derecho a participar en tantas suscripciones como desee hasta el máximo de 10.000 € (DIEZ MIL EUROS) por persona, siempre que la cantidad total indicada no esté cubierta y mientras permanezca abierto el periodo de suscripción. 
+</p><p>4. El periodo de suscripción terminará en el momento en el que se alcance la cantidad total a suscribir y en cualquier caso a las 23:59h del 25 de mayo. En ningún caso se podrá superar dicha cantidad total en las operaciones de suscripción. La no consecución de la cantidad total no anulará el proceso ni afectará en modo alguno al resto de los suscriptores. 
+</p><p>5. Las cantidades suscritas no serán reembolsables de forma anticipada hasta la finalización del contrato y dentro de los plazos de devolución establecidos en estas condiciones generales. 
+</p><p>6. No habrá peticiones previas de suscripción sino que la voluntad de suscribir el préstamo se manifestará únicamente en el momento de realizar la operación. La suscripción será nominal y no negociable, prohibiéndose expresamente la suscripción a personas jurídicas así como la venta o negociación de los derechos de dicha suscripción y atendiéndose únicamente el pago de la devolución a la persona física suscriptora. 
+</p><p>7. La suscripción no otorga ningún derecho político ni propiedad de ningún tipo más allá de los inherentes derechos de cobro de un préstamo civil. 
+</p><p>8. El préstamo no devengará intereses. Ahora Madrid efectuará la devolución de las cantidades recibidas en los siguientes plazos: el total del préstamo será devuelto al suscriptor después de las elecciones, en el momento en que Ahora Madrid cobre la subvención electoral establecida legalmente para los partidos políticos que hayan obtenido representación en el ayuntamiento de Madrid; en el caso de que el total de la subvención sea inferior al total del importe suscrito, Ahora Madrid dispondrá de un plazo de doce meses para reintegrar la parte no cubierta por dicha subvención. Hemos elegido a Fiare Banca Etica para que proporcione el apoyo técnico necesario para el desarrollo del proceso. 
+</p><p>9. El reembolso del total del crédito de acuerdo a estas condiciones generales supondrá la finalización del contrato. 
+</p><p>10. En caso de que por fuerza mayor, causa legal o política, suspensión electoral o que por cualquier otra causa AHORA MADRID no concurra a estas elecciones, se considerará resuelto el contrato y AHORA MADRID devolverá el importe de las suscripciones a los participantes en cuanto esta situación fuere definitiva. 
+</p><p>11. La suscripción se tendrá por efectuada exclusivamente en la fecha contable en que se obtenga el importe de la misma a través de la transferencia ejecutada por el suscriptor. Las cantidades recibidas serán depositadas en la cuenta electoral de Ahora Madrid ES51 1550 0001 2200 0109 0125 para el proceso electoral, en los términos de este contrato, en la entidad Banca Popolare Etica SCPA Sucursal en España Fiare Banca Ética, C/Santa María, 9 48005 Bilbao.
+</p><p>12. Los datos personales del suscriptor serán incorporados al fichero de datos del que es responsable Ahora Madrid Partido Político, CIF G87218962, que los utilizará para la administración del contrato y la gestión de las obligaciones contractuales, contables y tributarias, cumpliendo en todo momento las medidas de seguridad que establece la Ley Orgánica de Protección de Datos 15/1999. Ahora Madrid no cederá los datos a terceras personas ni organismos públicos sin su consentimiento, excepto cuando la ley establezca la obligación de ceder estos datos a las autoridades. El suscriptor autoriza la cesión de sus datos personales a la entidad financiera encargada del depósito de las cantidades entregadas y supervisar todo el proceso. Para ejercer los derechos de acceso, rectificación, cancelación y oposición de sus datos personales los suscriptores podrán dirigirse por correo electrónico a la dirección manuel.gabarre.desus@gmail.com adjuntando copia de su DNI o documento legal de identificación. 
+</p><p>13. Para cuantas cuestiones interpretativas o litigiosas puedan plantearse se establecerán canales de solución amistosa que no implicarán la pérdida de ningún derecho de reclamación jurisdiccional, para la cual serán competentes los Juzgados y Tribunales determinados en aplicación de la Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil.</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-md-offset-8">
+					<a href="#"> DESCARGAR CONTRATO EN PDF </a>
+				</div>
+				<div class="col-md-10 col-md-offset-1">
+					<div class="checkbox">
+					    <label>
+					      	<input type="checkbox"> Acepto el contrato civil de suscripción de Microcréditos de AHORAMADRID
+					    </label>
+					 </div>	
+					 <div class="checkbox">
+					    <label>
+					      	<input type="checkbox"> Declaro que en la actualidad soy mayor de 18 años.
+					    </label>
+					 </div>			
+				</div>
+			</div>		
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1" style="text-align:center;">
+					{{ form_end(form) }}
+				</div>
+			</div>
+		</div>	                    	
+	</div>
+ </div>
+               
+
+
 {% endblock %}
