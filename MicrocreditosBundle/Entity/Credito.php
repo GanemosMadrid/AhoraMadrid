@@ -385,7 +385,7 @@ class Credito
      *
      * @return string
      */
-    public function getIidentificador()
+    public function getIdentificador()
     {
         return $this->identificador;
     }
