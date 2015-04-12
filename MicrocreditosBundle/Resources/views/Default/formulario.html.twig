@@ -1,7 +1,20 @@
 {% extends 'AhoraMadridMicrocreditosBundle::layout.html.twig' %}
 
+{% form_theme form 'AhoraMadridMicrocreditosBundle::form_theme.html.twig' %}
+
 {% block body %}
 	<h1>Formulario</h1>
-	<div>Hola</div>
-	<div><a href="{{ path('contrato') }}">Generar pdf</a></div>
+	{{ form_start(form, {'attr': {'role': 'form', 'id': 'form0'}}) }}
+    {{ form_errors(form) }}
+	<div>{{ form_row(form.nombre, {'attr': {'class': 'form-control'}, 'label': 'Nombre'}) }} *</div>
+	<div>{{ form_row(form.apellidos, {'attr': {'class': 'form-control'}, 'label': 'Apellidos'}) }} *</div>
+	<div>{{ form_row(form.documentoIdentidad, {'attr': {'class': 'form-control'}, 'label': 'Documento de identidad'}) }} *</div>
+	<div>{{ form_row(form.correoElectronico, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} *</div>
+	<div>{{ form_row(form.pais, {'attr': {'class': 'form-control'}, 'label': 'País'}) }} *</div>
+	<div>{{ form_row(form.provincia, {'attr': {'class': 'form-control'}, 'label': 'Provincia'}) }} *</div>
+	<div>{{ form_row(form.municipio, {'attr': {'class': 'form-control'}, 'label': 'Municipio'}) }} *</div>
+	<div>{{ form_row(form.codigoPostal, {'attr': {'class': 'form-control'}, 'label': 'Código postal'}) }} *</div>
+	<div>{{ form_row(form.direcccion, {'attr': {'class': 'form-control'}, 'label': 'Direccción'}) }} *</div>
+	<div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} *</div>
+	{{ form_end(form) }}
 {% endblock %}
