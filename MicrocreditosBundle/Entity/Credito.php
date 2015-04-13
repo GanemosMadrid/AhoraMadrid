@@ -2,7 +2,9 @@
 
 namespace AhoraMadrid\MicrocreditosBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use AhoraMadrid\MicrocreditosBundle\Validator\Constraints as AMAssert;
 
 /**
  * Credito
@@ -40,6 +42,7 @@ class Credito
      * @var string
      *
      * @ORM\Column(name="documentoIdentidad", type="string", length=10)
+	 * @AMAssert\DniNie
      */
     private $documentoIdentidad;
 
@@ -47,6 +50,7 @@ class Credito
      * @var string
      *
      * @ORM\Column(name="correoElectronico", type="string", length=40)
+	 * @Assert\Email()
      */
     private $correoElectronico;
 

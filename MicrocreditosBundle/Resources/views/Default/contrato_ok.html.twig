@@ -1,0 +1,6 @@
+{% extends 'AhoraMadridMicrocreditosBundle::layout.html.twig' %}
+
+{% block body %}
+	<h2>Ok</h2>
+	<div><a href="{{ path('pdf', {'id': credito.id, 'identificador': credito.identificador}) }}">Generar PDF</a></div>
+{% endblock %}
