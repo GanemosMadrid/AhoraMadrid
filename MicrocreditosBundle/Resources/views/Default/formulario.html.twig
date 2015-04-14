@@ -21,18 +21,18 @@
 	        		
 	        	</div>
 	        	<div class="col-md-4 ">
-	        		<canvas id="chart1" width="409" height="204" style="width: 409px; height: 204px;"></canvas>
+	        		<!--<canvas id="chart1" width="409" height="204" style="width: 409px; height: 204px;"></canvas> -->
 	        	</div>
 	        	<div class="col-md-4 ">
-	        		<h4 style="margin-top:5em"> Ya hemos conseguido XXXXX *</h4>
+	        		<h4 style="margin-top:5em"> (los datos de donaciones recibidas se actulizarán en 24h)</h4>
 	        		<p style="text-align:right; margin-top: 0px; padding-top:0px">
-	        			<small> *donaciones anotadas en la web </small>
+	        			<!--<small> *donaciones anotadas en la web </small>-->
 	        		</p>
 	        	</div>
 	        </div>
 	        <div class="row">                    	
 	            	<div class="col-md-12 ">
-	            		<h2> ¿cuanto quieres prestar? </h2>
+	            		<h2> ¿Cuánto quieres prestar? </h2>
 	            			{{ form_start(form, {'attr': {'role': 'form', 'id': 'form0'}}) }}
 						    {{ form_errors(form) }}
 						    <div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} </div>
@@ -59,7 +59,7 @@
 		    	</div>
 		    	<div class="col-md-8 ">
 		    		<div class="col-md-8 ">
-		    			<div>{{ form_row(form.direcccion, {'attr': {'class': 'form-control'}, 'label': 'Direccción'}) }} </div>
+		    			<div>{{ form_row(form.direcccion, {'attr': {'class': 'form-control'}, 'label': 'Dirección'}) }} </div>
 		    		</div>
 		    		<div class="col-md-4">
 						<div>{{ form_row(form.codigoPostal, {'attr': {'class': 'form-control'}, 'label': 'Código postal'}) }} </div>
@@ -102,7 +102,7 @@
 				<div class="col-md-10 col-md-offset-1">
 					<div class="checkbox_acepto acepto1">
 					    <label>
-					      	<input type="checkbox"> Acepto el contrato civil de suscripción de Microcréditos de AHORAMADRID
+					      	<input type="checkbox"> Acepto el contrato civil de suscripción de Microcréditos de Ahora Madrid
 					    </label>
 					 </div>	
 					 <div class="checkbox_acepto acepto2">
@@ -114,7 +114,7 @@
 			</div>		
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1" style="text-align:center;">
-					<a href="javascript:;" class="btn btn-default disabled" id="send-dummy"> Debes de confirmar las dos clásulas de arriba para poder realizar el préstamo</a>  
+					<a href="javascript:;" class="btn btn-default disabled" id="send-dummy"> Debes confirmar las dos clásulas de arriba para poder realizar el préstamo</a>  
 					{{ form_end(form) }}
 				</div>
 			</div>

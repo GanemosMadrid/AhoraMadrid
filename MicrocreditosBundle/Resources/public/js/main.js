@@ -2,8 +2,7 @@ $(function() {
 	jQuery("h1").fitText(0.7);
 	aaa= 10;
 
-	var ctx = $("#chart1").get(0).getContext("2d");
-	var myDoughnutChart = new Chart(ctx).Pie(data,options);
+	
 
 
 	$("#ahoramadrid_microcreditosbundle_credito_importe input:radio").change(function () {
@@ -31,6 +30,8 @@ $(function() {
 			$('#ahoramadrid_microcreditosbundle_credito_Enviar').hide();
 		}
 	});
+	//var ctx = $("#chart1").get(0).getContext("2d");
+	//var myDoughnutChart = new Chart(ctx).Pie(data,options);
 
 });
 

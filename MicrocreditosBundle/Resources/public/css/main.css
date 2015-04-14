@@ -112,6 +112,19 @@ span.ahora {
   padding-top: 2em;
   padding-bottom: 2em;
 }
+#footer a {
+  /* ¿Quieres saber más s: */
+  font-family: 'open sans', 'helvetica', arial;
+  font-size: 18px;
+  color: #FFFFFF;
+  line-height: 24px;
+  text-decoration: underline;
+}
+#footer ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
 #formularios h2 {
   font-family: ubuntu, sans;
   font-size: 24px;
