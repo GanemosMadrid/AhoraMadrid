@@ -6,11 +6,14 @@ h1{
 	line-height: 110px;
 	text-align: center;
 }
-body,html,.main-container{
-
-	height:100%;
+body,html{
+	height: 100%;
+	min-height: 100%;
 	width:100%;
 	font-family: 'open sans','helvetica', arial;
+}
+.main-container{
+	height: 100%;
 }
 
 p.ubuntu{
@@ -24,7 +27,8 @@ p.ubuntu{
 }
 div#page1{
 	background: #00A48C;
-	height: 100%;
+	min-height: 100%;
+	height:auto;
 }
 #page1, #agradecimientos{
 	a.btn{
@@ -65,7 +69,8 @@ span.ahora{
 #page-faq{
 	text-align: center;
 	background: #fff;
-	height: 100%;
+	min-height: 100%;
+	height: auto;
 	h2{	
 		font-family: ubuntu, sans;
 		font-size: 24px;
@@ -129,8 +134,11 @@ span.ahora{
 		border-radius: 5px;
 		text-decoration: none;
 		border:1px #00A48C solid;
-		padding:1em 2em;
+		padding:1em 1.4em;
 		margin:1% 5%; 
+		label{
+			width:75px;
+		}
 	}
 	div.radio:selected{
 		box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
@@ -147,6 +155,7 @@ span.ahora{
 		font-weight: bold;
 		color: #4A4A4A;
 		line-height: 22px;
+		
 	}
 	#legal{
 		padding:2em;
@@ -156,4 +165,33 @@ span.ahora{
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}
+	.active{
+		background-color:#00A48C ;
+		label{
+			color:#fff;
+		}
+	}
+	input[type=radio]{
+		display: none;
+	}
+	#ahoramadrid_microcreditosbundle_credito_Enviar {
+	/* Rectangle 28 Copy 12: */
+	background: #00A48C;
+	box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+	border-radius: 5px;
+	border:0px;
+	/* confirmar préstamo: */
+	font-family: Ubuntu;
+	font-size: 24px;
+	color: #FFFFFF;
+	line-height: 28px;
+	&:hover{
+				box-shadow: none;
+				background-color:#00D6B2;
+				transition: all 0.5s;
+			}
+			display: none;
+	}
+
+
 }

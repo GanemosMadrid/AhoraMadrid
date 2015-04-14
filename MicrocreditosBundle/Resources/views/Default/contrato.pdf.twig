@@ -2,13 +2,42 @@
 <!DOCTYPE pdf SYSTEM "%resources%/dtd/doctype.dtd">
 <pdf>
     <dynamic-page>
-        <h1>Header</h1>
-        <p>paragraph</p>
-        <div color="red">Layer</div>
+    <img src="http://ahoramadrid.org/img/AHORAMADRID.png " style="width: 150px; "/>
+   
+        <h1>Ingreso microcrédito  </h1>
+        <p>Gracias por contribuir a la campaña de ahoraMadrid.</p>
+        <p>Por favor realiza la transferencia en menos de 48h. 
+        Los datos personales de la persona que realiza la transferencia deben de coincidir con los registrados previamente en la web de http.//financia.ahoramadrid.org<br/>
+            Cada transferencia debe de ser identificada con la referencia que se adjunta. Las transferencias sin identificar serán rechazadas.
+        </p>
+        <p>Estos son los datos bancarios a los que transferir</p>
+        <div color="#00A38B"><h1> DATOS PARA REALIZAR LA TRANSFERENCIA </h1></div>
         <table>
             <tr>
-                <td>{{credito.nombre}}</td>
-                <td>{{credito.apellidos}}</td>
+                <td>Titular de la cuenta</td>
+                <td><h2>Ahora Madrid</h2></td>
+            </tr>
+
+            <tr>
+                <td>CIF</td>
+                <td><h3>G87218962</h3></td>
+            </tr>
+            <tr>
+                <td>Cuenta bancaria</td>
+                <td><h2>S51 1550 0001 2200 0109 0125</h2></td>
+            </tr>
+
+            <tr>
+                <td>Entidad Bancaria</td>
+                <td>Banca Popolare Etica SCPA Sucursal en España <br/> <h3>Fiare Banca ética. </h3> C/Santa María, 9 48005 Bilbao. </td>
+            </tr>
+            <tr>
+                <td>Importe</td>
+                <td><h2>{{credito.importe}} € </h2></td>
+            </tr>
+            <tr>
+                <td>Referencia (DATO IMPRESCINDIBLE)</td>
+                <td><h2>{{credito.identificador}} </h2></td>
             </tr>
         </table>
     </dynamic-page>
