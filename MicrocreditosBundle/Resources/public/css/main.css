@@ -1,5 +1,5 @@
 h1 {
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   /* Microcréditos: */
   font-size: 95px;
   color: #FFFFFF;
@@ -17,7 +17,7 @@ html {
   height: 100%;
 }
 p.ubuntu {
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   line-height: 21px;
@@ -32,7 +32,7 @@ div#page1 {
 #page1 a.btn,
 #agradecimientos a.btn {
   /* ¡Fináncianos!: */
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 32px;
   color: #00A48C;
   line-height: 37px;
@@ -65,6 +65,13 @@ span.ahora {
   color: #00A48C;
   font-weight: bold;
 }
+p.ultimopaso {
+  font-size: 1.2em;
+  text-align: left;
+}
+p.ultimopaso .titulo {
+  color: #333;
+}
 #page-faq {
   text-align: center;
   background: #fff;
@@ -72,7 +79,7 @@ span.ahora {
   height: auto;
 }
 #page-faq h2 {
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 24px;
   color: #4A4A4A;
   line-height: 28px;
@@ -90,7 +97,7 @@ span.ahora {
 }
 #page-faq a.btn {
   /* ¡Fináncianos!: */
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 32px;
   color: #fff;
   line-height: 37px;
@@ -126,7 +133,7 @@ span.ahora {
   margin: 0px;
 }
 #formularios h2 {
-  font-family: ubuntu, sans;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 24px;
   color: #4A4A4A;
   line-height: 28px;
@@ -185,7 +192,7 @@ span.ahora {
   border-radius: 5px;
   border: 0px;
   /* confirmar préstamo: */
-  font-family: Ubuntu;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 24px;
   color: #FFFFFF;
   line-height: 28px;

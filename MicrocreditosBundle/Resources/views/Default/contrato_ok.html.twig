@@ -33,10 +33,30 @@
                         	
                         </div>
                     </div>
+                    <div class="row" style="margin-top: 2%" > 
+                        <div class="col-md-8 col-md-offset-2">
+                            El último paso es realizar la transferencia desde tu banco a nuestra cuenta:
+                        </div>
+                        <div class="col-md-4 col-md-offset-2">
+                            <p class="ubuntu ultimopaso"> 
+                                
+                                <br/><span class="titulo">Cuenta: </span>  ES51 1550 0001 2200 0109 0125 
+                                <br/><span class="titulo">Titular: </span> Ahora Madrid. 
+                                
+                            </p>                            
+                        </div>
+                        <div class="col-md-4">
+                            <p class="ubuntu ultimopaso"> 
+                                <br/><span class="titulo">Banco: </span>Fiare Banca Ética:
+                                <br/><span class="titulo">Referencia de la operación: </span> {{ credito.identificador }}
+                                <br/><span class="titulo">Importe: </span> {{ credito.importe }} €
+                            </p>                            
+                        </div>
+                    </div>
                     <div class="row" style="margin-top:20px; text-align:center" > 
 						<div class="col-md-8 col-md-offset-2">
-							<a href="{{ path('pdf', {'identificador': credito.identificador}) }}" class="btn btn-default" target="_blank">
-                                <small><small>	Descargar datos para la transferencia</small></small>
+							<a href="{{ path('pdf', {'identificador': credito.identificador}) }}" class="btn btn-default" style="font-size:1.3em;" target="_blank">
+                                	Descargar datos para la transferencia
 							</a>
 							<br/> 
 							<br/>
@@ -47,7 +67,7 @@
                     <div class="col-md-8 col-md-offset-2">     <h3> ¿Nos ayudas a que mas gente contribuya?</h3>                 
                     </div>
                         <div class="col-sm-3 col-sm-offset-2" style="text-align:center">
-                        	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://financia.ahoramadrid.org" data-text="Ya he contribuido a la campaña de @AhoraMadrid para que sólo dependa de la ciudadanía. #FinanciaAhoraMadrid tú también" data-size="large" data-count="none" data-dnt="true">Tweet</a>
+                        	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://financia.ahoramadrid.org" data-text="Ya he contribuido a la campaña de @AhoraMadrid para que sólo dependa de la ciudadanía #FinanciaAhoraMadrid tú también" data-size="large" data-count="none" data-dnt="true">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </div>
                         <div class="col-sm-3 col-sm-offset-2">
