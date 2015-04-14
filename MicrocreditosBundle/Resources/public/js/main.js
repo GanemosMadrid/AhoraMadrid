@@ -1,5 +1,6 @@
 $(function() {
 	jQuery("h1").fitText(0.7);
+	jQuery(".btn-pdf").fitText(0.7);
 	aaa= 10;
 
 	

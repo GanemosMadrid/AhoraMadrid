@@ -1,6 +1,15 @@
 {% extends 'AhoraMadridMicrocreditosBundle::layout.html.twig' %}
 
 {% block body %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
  <div class="main-container">       
  			<div id="page1">
                 <div class="container">
@@ -26,25 +35,23 @@
                     </div>
                     <div class="row" style="margin-top:20px; text-align:center" > 
 						<div class="col-md-8 col-md-offset-2">
-							<a href="{{ path('pdf', {'identificador': credito.identificador}) }}" class="btn btn-default">		Descargar PDF con datos de ingreso
+							<a href="{{ path('pdf', {'identificador': credito.identificador}) }}" class="btn btn-default">
+                                <small><small>	Descargar datos de la transferencia</small></small>
 							</a>
 							<br/> 
 							<br/>
 							<strong>Recuerda que tienes 48 horas para completar el proceso</strong>
 						</div>
 					</div>
-                    <div class="row m1" style="margin-top:8%; text-align:center" >                       
-                        <div class="col-md-2 col-md-offset-3">
-                        	<a href="https://twitter.com/intent/tweet?
-   url=http://financia.ahoramadrid.org&text=Yo ya he contribuido a financiar la campaña de @ahoraMadrid. Porque cambiar significa hacer las cosas de otra manera #FinanciaAhoraMadrid" 
-   target="_blank" title="Tweet" target="_blank">
-                        	<i class="fa fa-twitter  fa-2x"> </i><br/>
-                        	Compartir en twitter                      </a>  
+                    <div class="row m1" style="margin-top:8%; text-align:center" > 
+                    <div class="col-md-8 col-md-offset-2">     <h3> ¿Nos ayudas a que mas gente contribuya?</h3>                 
+                    </div>
+                        <div class="col-sm-3 col-sm-offset-2" style="text-align:center">
+                        	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://financia.ahoramadrid.org" data-text="Ya he contribuido a la campaña de @AhoraMadrid para que sólo dependa de la ciudadanía. #FinanciaAhoraMadrid tú también" data-size="large" data-count="none" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </div>
-                        <div class="col-md-2 col-md-offset-2">
-                        	<a target='_blank' href="https://www.facebook.com/dialog/feed?app_id=143103275748075&link=http://financia.ahoramadrid.org&picture=http://financia.ahoramadrid.org&name=Woobox%20Name&caption=tiriri%20tiriri&description=This%20is%20a%20description.&redirect_uri=http://financia.ahoramadrid.org">
-	                        	<i class="fa fa-facebook-official fa-2x"></i><br/>
-	                        	Compartir en facebook<br/></a>  
+                        <div class="col-sm-3 col-sm-offset-2">
+                        	<div class="fb-share-button" data-href="http://financia.ahoramadrid.org" data-layout="button_count"></div>
 	                        	
  							</a>
                         </div>
