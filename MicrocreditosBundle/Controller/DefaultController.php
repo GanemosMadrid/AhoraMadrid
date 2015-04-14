@@ -45,7 +45,7 @@ class DefaultController extends Controller{
 			//Se crea el identificador de verdad
 			$identificador = 'AhoraMadrid'. $credito->getId() . self::stringAleatorio();
 			//Se actualiza el identificador
-			$em = $this->getDoctrine()->getManager();
+			//$em = $this->getDoctrine()->getManager();
 			$credito->setIdentificador($identificador);
 			$em->flush();
 			
@@ -79,7 +79,7 @@ class DefaultController extends Controller{
 			;
 			$mailer->send($message);
 			
-			return $this->redirectToRoute('contrato', array('id' => $credito->getId(), 'identificador' => $credito->getIdentificador()));
+			return $this->redirectToRoute('contrato', array('identificador' => $credito->getIdentificador()));
 		}
 		
 		//Si no se ha enviado el formulario, se carga la página con el formulario
@@ -89,12 +89,12 @@ class DefaultController extends Controller{
 	 }
 	 
 	 /**
-     * @Route("/contrato/{id}/{identificador}", name="contrato")
+     * @Route("/contrato/{identificador}", name="contrato")
      */
-	 public function contrato($id, $identificador){
+	 public function contrato($identificador){
 		//Se busca el crédito por su identificador
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
-		$credito = $repository->findOneBy(array('id' => $id, 'identificador' => $identificador));
+		$credito = $repository->findOneByIdentificador($identificador);
 		//Si no se ha encontrado, no se puede crear el pdf. Se muestra la página de eror
 		if(!$credito){
 			return $this->render('AhoraMadridMicrocreditosBundle:Default:error_contrato.html.twig', array('identificador' => $identificador));
@@ -105,13 +105,13 @@ class DefaultController extends Controller{
 	 }
 	 
 	 /**
-     * @Route("/pdf/{id}/{identificador}", name="pdf")
+     * @Route("/pdf/{identificador}", name="pdf")
 	 * @Pdf()
      */
-	 public function pdf($id, $identificador){
+	 public function pdf($identificador){
 		//Se busca el crédito por su identificador
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
-		$credito = $repository->findOneBy(array('id' => $id, 'identificador' => $identificador));
+		$credito = $repository->findOneByIdentificador($identificador);
 		//Si no se ha encontrado, no se puede crear el pdf. Se muestra la página de eror
 		if(!$credito){
 			return $this->render('AhoraMadridMicrocreditosBundle:Default:error_contrato.html.twig', array('identificador' => $identificador));

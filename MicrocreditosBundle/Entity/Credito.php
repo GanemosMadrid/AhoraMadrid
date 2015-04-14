@@ -99,7 +99,7 @@ class Credito
 	/**
      * @var string
      *
-     * @ORM\Column(name="identificador", type="string", length=20)
+     * @ORM\Column(name="identificador", type="string", length=40)
      */
     private $identificador;
 
@@ -109,6 +109,13 @@ class Credito
      * @ORM\Column(name="fecha", type="datetime")
      */
     private $fecha;
+	
+	/**
+     * @var boolean
+     *
+     * @ORM\Column(name="recibido", type="boolean")
+     */
+    private $recibido = false;
 	
 	/**
      * Se establece el valor fecha cuando se va a insertar un crédito.
@@ -416,6 +423,30 @@ class Credito
     public function getFecha()
     {
         return $this->fecha;
+    }
+	
+	/**
+     * Set recibido
+     *
+     * @param boolean $recibido
+     *
+     * @return Credito
+     */
+    public function setRecibido($recibido)
+    {
+        $this->recibido = $recibido;
+
+        return $this;
+    }
+
+    /**
+     * Get recibido
+     *
+     * @return boolean
+     */
+    public function getRecibido()
+    {
+        return $this->recibido;
     }
 }
 
