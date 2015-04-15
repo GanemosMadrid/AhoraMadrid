@@ -115,7 +115,7 @@ p.ultimopaso .titulo {
 #footer {
   pading-top: 5em;
   background-color: #00A48C;
-  border: 1px solid #03705E;
+  border-top: 1px solid #03705E;
 }
 #footer .container {
   padding-top: 2em;
