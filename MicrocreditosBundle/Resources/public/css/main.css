@@ -14,7 +14,7 @@ html {
   font-family: 'open sans', 'helvetica', arial;
 }
 .main-container {
-  height: 100%;
+  height: auto;
 }
 p.ubuntu {
   font-family: 'Ubuntu', sans-serif;
@@ -28,6 +28,7 @@ div#page1 {
   background: #00A48C;
   min-height: 100%;
   height: auto;
+  min-height: 100vh;
 }
 #page1 a.btn,
 #agradecimientos a.btn {
@@ -112,8 +113,9 @@ p.ultimopaso .titulo {
   box-shadow: none;
 }
 #footer {
-  margin-top: 5em;
+  pading-top: 5em;
   background-color: #00A48C;
+  border: 1px solid #03705E;
 }
 #footer .container {
   padding-top: 2em;

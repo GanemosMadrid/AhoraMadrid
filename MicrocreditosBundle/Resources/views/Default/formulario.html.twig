@@ -24,7 +24,7 @@
 	        		<!--<canvas id="chart1" width="409" height="204" style="width: 409px; height: 204px;"></canvas> -->
 	        	</div>
 	        	<div class="col-md-4 ">
-	        		<h4 style="margin-top:1em"><small> (los datos de donaciones recibidas se actulizarán en 24h)</small></h4>
+	        		<h4 style="margin-top:1em"><small> (los datos de donaciones recibidas se actualizarán en 24h)</small></h4>
 	        		<p style="text-align:right; margin-top: 0px; padding-top:0px">
 	        			<!--<small> *donaciones anotadas en la web </small>-->
 	        		</p>
@@ -53,12 +53,12 @@
 				
 			
 			<div class="row">
-		    	<div class="col-md-4 ">
+		    	<div class="col-md-4" style="height: auto; overflow: auto;">
 		    		<div class="col-xs-12 ">
 		    			<div>{{ form_row(form.correoElectronico, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} </div>
 		    		</div>
 		    		<div class="col-xs-12 ">
-						<div>{{ form_row(form.documentoIdentidad, {'attr': {'class': 'form-control'}, 'label': 'Documento de identidad'}) }} </div>
+						<div>{{ form_row(form.documentoIdentidad, {'attr': {'class': 'form-control'},  'attr': {'placeholder': '77777777X' },'label': 'DNI (con letra)'}) }} </div>
 					</div>
 		    	</div>
 		    	<div class="col-md-8 ">
@@ -117,7 +117,7 @@
 				</div>
 			</div>		
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1" style="text-align:center;">
+				<div class="col-md-10 col-md-offset-1" style="text-align:center; margin-bottom:40px; padding-top:20px">
 					<a href="javascript:;" class="btn btn-default disabled" id="send-dummy"> Debes confirmar las dos clásulas de arriba para terminar</a>  
 					{{ form_end(form) }}
 				</div>

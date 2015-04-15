@@ -1,9 +1,11 @@
 $(function() {
 	jQuery("h1").fitText(0.7);
 	jQuery(".btn-pdf").fitText(0.7);
-	aaa= 10;
+	enviar_form=false;
 
-	
+	$("#form0").submit(function() {
+	  return enviar_form;
+	});
 
 
 	$("#ahoramadrid_microcreditosbundle_credito_importe input:radio").change(function () {
@@ -25,16 +27,25 @@ $(function() {
 		if( $('.acepto1 input').is(':checked') && $('.acepto2 input').is(':checked') ){
 			$('#send-dummy').hide();
 			$('#ahoramadrid_microcreditosbundle_credito_Enviar').fadeIn();
+			enviar_form=true;
 		}
 		else{
 			$('#send-dummy').fadeIn();
 			$('#ahoramadrid_microcreditosbundle_credito_Enviar').hide();
+			enviar_form=false;
 		}
 	});
+	//sizeContent();
+	//$(window).resize(sizeContent);
+	
 	//var ctx = $("#chart1").get(0).getContext("2d");
 	//var myDoughnutChart = new Chart(ctx).Pie(data,options);
 
 });
+function sizeContent() {
+	var newHeight = $(window).height() + 'px';
+    $("#page1").css("height", newHeight);
+}
 
 var data = [
    {
