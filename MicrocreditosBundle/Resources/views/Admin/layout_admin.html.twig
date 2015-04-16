@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html  lang="es-ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ahora Madrid</title>
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+        <meta name="description" content="AhoraMadrid se financia contigo. Plataforma para recopilar microcréditos ciudadanos con el objetivo de financiar la campaña de AhoraMadrid al ayuntamiento de Madrid" />
+
+            <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/ahoramadridmicrocreditos/images/fbshare.png') }}" />
+            <meta property="og:image:width" content="1200" /> 
+          <meta property="og:image:height" content="628" />
+          <meta property="og:title" content="AhoraMadrid - Financiación Colectiva" />
+          <meta property="og:url" content="http://financia.ahoramadrid.org/app.php/" />
+          <meta property="og:description" content="AhoraMadrid se financia contigo. Plataforma para recopilar microcréditos ciudadanos con el objetivo de financiar la campaña de AhoraMadrid al ayuntamiento de Madrid" />
+
+            <meta name="keywords" content="microcreditos ahoramadrid financiacion crowdfounding nueva politica ayudarnos comun participación madrid municipalismo manuela carmena" />
+            <meta name="robots" content="index,follow" />
+            <meta name="geo.region" content="ES" />
+        <!-- favicon -->
+
+        <!--[if IE]><![endif]-->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.2.1/bootstrap-social.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+		<link href="{{ asset('bundles/ahoramadridmicrocreditos/css/main.css') }}" type="text/css" rel="stylesheet" />
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="{{ asset('bundles/ahoramadridmicrocreditos/images/AHORAMADRID_favicon.png') }} " type="image/png"/>
+        
+        <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/main.js') }}"></script>
+        <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/vendor/jquery.fittext.js') }}"></script>
+        <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/vendor/Chart.min.js') }}"></script>
+    </head>
+
+    <body>
+       <!-- Barra superior -->
+       <div>Panel de administraci�n de microcr�ditos de Ahora Madrid</div>
+       {% if app.session.get('usuario') is not null %}
+       		<div>{{ app.session.get('usuario') }} <a href="{{ path('logout') }}">Salir</a></div>
+       {% else %}
+       		<div><a href="{{ path('login') }}">Iniciar sesi�n</a></div>
+       {% endif %}
+       <br/><br/><br/><br/>
+
+                {% block body %}
+                {% endblock %}
+                
+
+    </body>
+</html>

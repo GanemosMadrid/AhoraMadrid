@@ -1,0 +1,14 @@
+{% extends 'AhoraMadridMicrocreditosBundle:Admin:layout_admin.html.twig' %}
+
+{% block body %}
+	
+	{% if error is defined and error is not empty %}
+		<div>{{ error }}</div>
+	{% endif %}
+	
+	{{ form_start(form, {'attr': {'role': 'form', 'id': 'formLogin'}}) }}
+    {{ form_errors(form) }}
+    	<div>{{ form_row(form.correo, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} </div>
+    	<div>{{ form_row(form.contrasena, {'attr': {'class': 'form-control'}, 'label': 'Contraseña'}) }} </div>
+    {{ form_end(form) }}
+{% endblock %}

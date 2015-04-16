@@ -33,6 +33,14 @@ class DefaultController extends Controller{
 		$form = $this->createForm(new CreditoType(), $credito);
 		$form->handleRequest($request);
 		
+		//Se buscan los cr�ditos recibidos
+		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
+		$qbTotalRecibidos = $repository->createQueryBuilder('c')
+							->select('SUM(c.importe)')
+							->where('c.recibido = 1');
+		
+		$totalRecibidos = $qbTotalRecibidos->getQuery()->getSingleScalarResult();
+		
 		//Si la validación es correcta, se persiste el crédito y se redirige a mostrar el contrato
 		if ($form->isValid()) {
 			$credito->setIdentificador("Temp");
@@ -85,6 +93,7 @@ class DefaultController extends Controller{
 		//Si no se ha enviado el formulario, se carga la página con el formulario
 		return $this->render('AhoraMadridMicrocreditosBundle:Default:formulario.html.twig', array(
                     'form' => $form->createView(),
+					'totalRecibidos' => $totalRecibidos
 		));
 	 }
 	 

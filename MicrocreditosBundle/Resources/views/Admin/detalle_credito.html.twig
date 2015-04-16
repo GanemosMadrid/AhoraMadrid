@@ -1,0 +1,55 @@
+{% extends 'AhoraMadridMicrocreditosBundle:Admin:layout_admin.html.twig' %}
+
+{% block body %}
+	<h2>Detalle del crédito</h2> (poner botón de volver como el atrás del navegador)
+	<table id="listadoCreditos" class="table table-striped ">
+
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+        
+        <tr>
+            <td>Identificador</td><td>{{ credito.identificador }}</td>
+        </tr>
+        <tr>
+            <td>Nombre</td><td>{{ credito.nombre }}</td>
+        </tr>
+        <tr>
+            <td>Apellidos</td><td>{{ credito.apellidos }}</td>
+        </tr>
+        <tr>
+            <td>Documento</td><td>{{ credito.documentoIdentidad }}</td>
+        </tr>
+        <tr>
+            <td>Importe</td><td>{{ credito.importe }} €</td>
+        </tr>
+        <tr>
+            <td>Fecha</td><td>{{ credito.fecha|date('d/m/Y') }}<!--  H:i:s para tiempo --></td>
+        </tr>
+        <tr>
+            <td>Recibido</td><td>{% if credito.recibido %}SI{% else %}NO{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Correo</td><td>{{ credito.correoElectronico }}</td>
+        </tr>
+        <tr>
+            <td>Dirección</td><td>{{ credito.direcccion }}</td>
+        </tr>
+        <tr>
+            <td>Municipio</td><td>{{ credito.municipio }}</td>
+        </tr>
+        <tr>
+            <td>Provincia</td><td>{{ credito.provincia }}</td>
+        </tr>
+        <tr>
+            <td>País</td><td>{{ credito.pais }}</td>
+        </tr>
+        <tr>
+            <td>Código postal</td><td>{{ credito.codigoPostal }}</td>
+        </tr>
+
+    </table>
+
+    
+{% endblock %}
