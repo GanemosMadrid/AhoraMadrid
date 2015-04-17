@@ -30,8 +30,6 @@ class CreditoController extends AdminController{
 	    $form->handleRequest($request);
 	    
 	    $data = $form->getData();
-	    
-	    dump($data);
 		
 		//Se buscan los créditos
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
