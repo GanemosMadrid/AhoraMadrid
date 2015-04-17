@@ -21,12 +21,11 @@
 	        		
 	        	</div>
 	        	<div class="col-md-4 ">
-	        		<!--<canvas id="chart1" width="409" height="204" style="width: 409px; height: 204px;">{{ totalRecibidos }}</canvas> -->
+	        		<canvas id="chart1" width="409" height="204" style="width: 409px; height: 204px;"></canvas>
 	        	</div>
 	        	<div class="col-md-4 ">
-	        		<h4 style="margin-top:1em"><small> (los datos de donaciones recibidas se actualizarán en 24h)</small></h4>
-	        		<p style="text-align:right; margin-top: 0px; padding-top:0px">
-	        			<!--<small> *donaciones anotadas en la web </small>-->
+	        		<p style="text-align:left; margin-top: 0px; padding-top:0px" id="info-donaciones">
+	        			Préstamos recibidos en esta fase: <br/> <strong>{{ totalRecibidos }} € </strong> 	        			<br/><small> *transferencias recibidas y aprobadas </small>
 	        		</p>
 	        	</div>
 	        </div>
@@ -126,6 +125,36 @@
 	</div>
  </div>
                
+<script>
+{% if totalRecibidos %}
+	recibido={{ totalRecibidos }}
+{% else %}	
+recibido=0;
+{% endif %}	
 
+ var data = [
+   {
+        value: recibido,
+        color: "#00A48C",
+        highlight: "#5AD3D1",
+        label: "Recibido"
+    },
+    {//Aquí hay que poner el valor total
+        value: 50000-recibido,
+        color:"#4A4A4A",
+        highlight: "#9A9A9A",
+        label: "Restante"
+    },
+]
+if(data[0].value > 0){
+	var ctx = $("#chart1").get(0).getContext("2d");
+	var myDoughnutChart = new Chart(ctx).Pie(data,options);
+	//$('#info-donaciones').empty().html("*Datos de transferencias completadas con éxito")
+}
+else{
+	$('#info-donaciones').empty().html("*(los datos de donaciones recibidas se actualizarán en breve)")
+}
+
+</script>
 
 {% endblock %}

@@ -1,7 +1,5 @@
-{% extends 'AhoraMadridMicrocreditosBundle:Admin:layout_admin.html.twig' %}
-
 {% block body %}
-	<h2>Detalle del crédito</h2> (poner botón de volver como el atrás del navegador)
+	<h2>Detalle del crÃ©dito</h2> 
 	<table id="listadoCreditos" class="table table-striped ">
 
         <tr>
@@ -22,7 +20,7 @@
             <td>Documento</td><td>{{ credito.documentoIdentidad }}</td>
         </tr>
         <tr>
-            <td>Importe</td><td>{{ credito.importe }} €</td>
+            <td>Importe</td><td>{{ credito.importe }} â‚¬</td>
         </tr>
         <tr>
             <td>Fecha</td><td>{{ credito.fecha|date('d/m/Y') }}<!--  H:i:s para tiempo --></td>
@@ -34,7 +32,7 @@
             <td>Correo</td><td>{{ credito.correoElectronico }}</td>
         </tr>
         <tr>
-            <td>Dirección</td><td>{{ credito.direcccion }}</td>
+            <td>DirecciÃ³n</td><td>{{ credito.direcccion }}</td>
         </tr>
         <tr>
             <td>Municipio</td><td>{{ credito.municipio }}</td>
@@ -43,13 +41,15 @@
             <td>Provincia</td><td>{{ credito.provincia }}</td>
         </tr>
         <tr>
-            <td>País</td><td>{{ credito.pais }}</td>
+            <td>PaÃ­s</td><td>{{ credito.pais }}</td>
         </tr>
         <tr>
-            <td>Código postal</td><td>{{ credito.codigoPostal }}</td>
+            <td>CÃ³digo postal</td><td>{{ credito.codigoPostal }}</td>
         </tr>
 
     </table>
-
+<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
     
 {% endblock %}

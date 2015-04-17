@@ -47,23 +47,9 @@ function sizeContent() {
     $("#page1").css("height", newHeight);
 }
 
-var data = [
-   {
-        value: 10,
-        color: "#00A48C",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 90,
-        color:"#4A4A4A",
-        highlight: "#9A9A9A",
-        label: "Red"
-    },
- 
 
-]
 var options={
     //Boolean - Whether we should show a stroke on each segment
     segmentShowStroke : true,
+    animationEasing: "easeOutQuart",
 }

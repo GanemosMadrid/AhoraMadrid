@@ -28,28 +28,28 @@
         
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     
-		<link href="{{ asset('bundles/ahoramadridmicrocreditos/css/main.css') }}" type="text/css" rel="stylesheet" />
+		<link href="{{ asset('bundles/ahoramadridmicrocreditos/css/admin.css') }}" type="text/css" rel="stylesheet" />
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css'>
         <link rel="icon" href="{{ asset('bundles/ahoramadridmicrocreditos/images/AHORAMADRID_favicon.png') }} " type="image/png"/>
         
-        <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/main.js') }}"></script>
         <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/vendor/jquery.fittext.js') }}"></script>
         <script src="{{ asset('bundles/ahoramadridmicrocreditos/js/vendor/Chart.min.js') }}"></script>
     </head>
 
     <body>
        <!-- Barra superior -->
-       <div>Panel de administración de microcréditos de Ahora Madrid</div>
+       <div id="header">
+       <div >Panel de administraciÃ³n de microcrÃ©ditos de Ahora Madrid</div>
        {% if app.session.get('usuario') is not null %}
        		<div>{{ app.session.get('usuario') }} <a href="{{ path('logout') }}">Salir</a></div>
        {% else %}
-       		<div><a href="{{ path('login') }}">Iniciar sesión</a></div>
+       		<div><a href="{{ path('login') }}">Iniciar sesiÃ³n</a></div>
        {% endif %}
        <br/><br/><br/><br/>
-
+      </div>
                 {% block body %}
                 {% endblock %}
                 

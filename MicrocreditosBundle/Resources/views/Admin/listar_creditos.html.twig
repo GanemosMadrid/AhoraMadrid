@@ -6,12 +6,12 @@
         <p>{{ flashMessage }}</p>
     {% endfor %}
     
-	<h2>Buscador de créditos</h2>
+	<h2>Buscador de crÃ©ditos</h2>
 	<h4>
-		Créditos prometidos: <span class="label label-primary">{{ pagination.getTotalItemCount }}</span>. Importe total {{ total }} €.
+		CrÃ©ditos prometidos: <span class="label label-primary">{{ pagination.getTotalItemCount }}</span>. Importe total {{ total }} â‚¬.
 	</h4>
 	<h4>
-		Créditos recibidos <span class="label label-primary">{{ recibidos }}</span>. Importe total {{ totalRecibidos }} €.
+		CrÃ©ditos recibidos <span class="label label-primary">{{ recibidos }}</span>. Importe total {{ totalRecibidos }} â‚¬.
 	</h4>
 	<table id="listadoCreditos" class="table table-striped ">
 
@@ -27,23 +27,23 @@
         </tr>
 
         {% for credito in pagination %}
-            <tr>
+            <tr class="{% if credito.recibido %}recibido{% endif %}">
                 <td>{{ credito.identificador }}</td>
                 <td>{{ credito.nombre }}</td>
                 <td>{{ credito.apellidos }}</td>
                 <td>{{ credito.documentoIdentidad }}</td>
-                <td>{{ credito.importe }} €</td>
+                <td>{{ credito.importe }} â‚¬</td>
                 <td>{{ credito.fecha|date('d/m/Y') }}<!--  H:i:s para tiempo --></td>
                 <td>{% if credito.recibido %}SI{% else %}NO{% endif %}</td>
                 <td>
-                	<a href="{{ path('detalle_credito', {'id': credito.id}) }}">Detalle</a> 
+                	<a href="{{ path('detalle_credito', {'id': credito.id}) }}" data-toggle="modal" data-target="#myModal">Detalle</a> 
                 	{% if app.session.get('rol') == 20 %}
 	                	{% if credito.recibido %}
-	                		 | <a href="{{ path('recibir_credito', {'id': credito.id, 'recibir': 0}) }}" onclick="return confirm('¿Seguro que quieres marcar el crédito {{ credito.identificador }} como no recibido?')">No recibido</a> | 
+	                		 | <a href="{{ path('recibir_credito', {'id': credito.id, 'recibir': 0}) }}" onclick="return confirm('Â¿Seguro que quieres marcar el crÃ©dito {{ credito.identificador }} como no recibido?')">No recibido</a> | 
 	                	{% else %}
-	                		 | <a href="{{ path('recibir_credito', {'id': credito.id, 'recibir': 1}) }}" onclick="return confirm('¿Seguro que quieres marcar el crédito {{ credito.identificador }} como recibido?')">Recibido</a> | 
+	                		 | <a href="{{ path('recibir_credito', {'id': credito.id, 'recibir': 1}) }}" onclick="return confirm('Â¿Seguro que quieres marcar el crÃ©dito {{ credito.identificador }} como recibido?')">Recibido</a> | 
 	                	{% endif %}
-	                	<a href="{{ path('borrar_credito', {'id': credito.id}) }}" onclick="return confirm('¿Seguro que quieres borrar el crédito {{ credito.identificador }}?')">Borrar</a>
+	                	<a href="{{ path('borrar_credito', {'id': credito.id}) }}" onclick="return confirm('Â¿Seguro que quieres borrar el crÃ©dito {{ credito.identificador }}?')">Borrar</a>
 	                {% endif %}
                 </td>
             </tr>
@@ -55,4 +55,23 @@
         {{ knp_pagination_render(pagination) }}
     </div>
     
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Modal title</h4>
+
+            </div>
+            <div class="modal-body"><div class="te"></div></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 {% endblock %}

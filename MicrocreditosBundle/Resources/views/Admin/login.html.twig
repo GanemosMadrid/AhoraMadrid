@@ -1,14 +1,39 @@
 {% extends 'AhoraMadridMicrocreditosBundle:Admin:layout_admin.html.twig' %}
 
 {% block body %}
-	
-	{% if error is defined and error is not empty %}
+<style>
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
+
+
+</style>	
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="{{ asset('bundles/ahoramadridmicrocreditos/images/avatar.png') }}" />
+            <p id="profile-name" class="profile-name-card"></p>
+            
+            	{% if error is defined and error is not empty %}
 		<div>{{ error }}</div>
 	{% endif %}
 	
 	{{ form_start(form, {'attr': {'role': 'form', 'id': 'formLogin'}}) }}
     {{ form_errors(form) }}
-    	<div>{{ form_row(form.correo, {'attr': {'class': 'form-control'}, 'label': 'Correo electrónico'}) }} </div>
-    	<div>{{ form_row(form.contrasena, {'attr': {'class': 'form-control'}, 'label': 'Contraseña'}) }} </div>
+    	<div>{{ form_row(form.correo, {'attr': {'class': 'form-control'}, 'label': 'Correo electrÃ³nico'}) }} </div>
+    	<div>{{ form_row(form.contrasena, {'attr': {'class': 'form-control'}, 'label': 'ContraseÃ±a'}) }} </div>
     {{ form_end(form) }}
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+
+
 {% endblock %}
