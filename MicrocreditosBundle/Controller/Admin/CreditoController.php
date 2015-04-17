@@ -17,10 +17,47 @@ class CreditoController extends AdminController{
 		$response = parent::controlSesion($request, array(parent::ROL_ADMIN, parent::ROL_CONSULTA));
 		if($response != null) return $response;
 		
+		//Se crea y se recoge el formulario
+		$form = $this->createFormBuilder()
+			->setMethod('GET')
+	        ->add('identificador', 'text')
+	        ->add('nombre', 'text')
+	        ->add('apellidos', 'text')
+	        ->add('documentoIdentidad', 'text')
+	        ->add('Buscar', 'submit')
+	        ->getForm();
+	
+	    $form->handleRequest($request);
+	    
+	    $data = $form->getData();
+	    
+	    dump($data);
+		
 		//Se buscan los créditos
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
 		$qb = $repository->createQueryBuilder('c')
 				->orderBy('c.id', 'DESC');
+		
+		//Se añaden al queryBuilder las opciones del buscador, si las hay
+		if($data['identificador'] != null && !empty(trim($data['identificador']))){
+			$qb->andWhere('c.identificador LIKE :identificador')
+            ->setParameter('identificador', '%'.$data['identificador'].'%');
+		}
+		
+		if($data['nombre'] != null && !empty(trim($data['nombre']))){
+			$qb->andWhere('c.nombre LIKE :nombre')
+			->setParameter('nombre', '%'.$data['nombre'].'%');
+		}
+		
+		if($data['apellidos'] != null && !empty(trim($data['apellidos']))){
+			$qb->andWhere('c.apellidos LIKE :apellidos')
+			->setParameter('apellidos', '%'.$data['apellidos'].'%');
+		}
+		
+		if($data['documentoIdentidad'] != null && !empty(trim($data['documentoIdentidad']))){
+			$qb->andWhere('c.documentoIdentidad LIKE :documentoIdentidad')
+			->setParameter('documentoIdentidad', '%'.$data['documentoIdentidad'].'%');
+		}
 		
 		$query = $qb->getQuery();
 		
@@ -53,6 +90,7 @@ class CreditoController extends AdminController{
 		);
 	
 		return $this->render('AhoraMadridMicrocreditosBundle:Admin:listar_creditos.html.twig', array(
+				'form' => $form->createView(),
 				'pagination' => $pagination,
 				'total' => $total,
 				'recibidos' => $recibidos,
@@ -90,17 +128,18 @@ class CreditoController extends AdminController{
 		$em->flush();
 		
 		//Se envía el correo al que ha prestado
-		//Se manda el correo
-		$mailer = $this->get('mailer');
-		$message = $mailer->createMessage()
-		->setSubject('Ahora Madrid: Transferencia recibida')
-		->setFrom('contratos@ahoramadrid.org')
-		->setTo($credito->getCorreoElectronico())
-		->setBody(
-				$this->renderView('AhoraMadridMicrocreditosBundle:Admin:correo_transferencia_recibida.txt.twig'),
-				'text/plain'
-		);
-		$mailer->send($message);
+		if($recibir == 1){
+			$mailer = $this->get('mailer');
+			$message = $mailer->createMessage()
+			->setSubject('Ahora Madrid: Transferencia recibida')
+			->setFrom('contratos@ahoramadrid.org')
+			->setTo($credito->getCorreoElectronico())
+			->setBody(
+					$this->renderView('AhoraMadridMicrocreditosBundle:Admin:correo_transferencia_recibida.txt.twig'),
+					'text/plain'
+			);
+			$mailer->send($message);
+		}
 		
 		//Se guarda el mensaje
 		$sesion = $this->getRequest()->getSession();
