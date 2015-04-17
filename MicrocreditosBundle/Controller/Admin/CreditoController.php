@@ -128,17 +128,18 @@ class CreditoController extends AdminController{
 		$em->flush();
 		
 		//Se envía el correo al que ha prestado
-		//Se manda el correo
-		$mailer = $this->get('mailer');
-		$message = $mailer->createMessage()
-		->setSubject('Ahora Madrid: Transferencia recibida')
-		->setFrom('contratos@ahoramadrid.org')
-		->setTo($credito->getCorreoElectronico())
-		->setBody(
-				$this->renderView('AhoraMadridMicrocreditosBundle:Admin:correo_transferencia_recibida.txt.twig'),
-				'text/plain'
-		);
-		$mailer->send($message);
+		if($recibir == 1){
+			$mailer = $this->get('mailer');
+			$message = $mailer->createMessage()
+			->setSubject('Ahora Madrid: Transferencia recibida')
+			->setFrom('contratos@ahoramadrid.org')
+			->setTo($credito->getCorreoElectronico())
+			->setBody(
+					$this->renderView('AhoraMadridMicrocreditosBundle:Admin:correo_transferencia_recibida.txt.twig'),
+					'text/plain'
+			);
+			$mailer->send($message);
+		}
 		
 		//Se guarda el mensaje
 		$sesion = $this->getRequest()->getSession();
