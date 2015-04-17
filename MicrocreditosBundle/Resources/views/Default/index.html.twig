@@ -4,17 +4,17 @@
  <div class="main-container">       
  			<div id="page1">
                 <div class="container">
-                    <div class="row" style="margin-top: 4% " >                       
+                    <div class="row" style="margin-top: 2% " >                       
                         <div class="col-md-2 col-md-offset-5 col-xs-6 col-xs-offset-3">
                         <img src="{{ asset('bundles/ahoramadridmicrocreditos/images/ahoraMadrid_logo_blanco.png') }}" class="img-responsive">
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 2%" >                       
+                    <div class="row" style="margin-top: 1%" >                       
                         <div class="col-md-8 col-md-offset-2">
                         	<h1>Microcréditos</h1>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 4%" > 
+                    <div class="row" style="margin-top: 1%" > 
 						<div class="col-md-8 col-md-offset-2">
                         	<p class="ubuntu"> 
                         		<small>
@@ -25,12 +25,26 @@
                         	
                         </div>
                     </div>
-                    <div class="row" style="margin-top:20px; text-align:center" > 
+                    <div class="row" style="margin-top:10px; text-align:center" > 
 						<div class="col-md-8 col-md-offset-2">
 							<a href="{{ path('formulario') }}" class="btn btn-default">¡Fináncianos!</a>
 						</div>
 					</div>
-                    <div class="row m1" style="margin-top:8% " >                       
+                    <div class="row" style="margin-top:30px; text-align:center" id="row-donaciones"> 
+                        <div class="col-md-4 col-md-offset-2">
+                            <p style="text-align:right; margin-top: 20px; padding-top:0px; color: #333; font-size:18px; font-family: 'open sans'" >
+                                Fase 1. Objetivo 50.000€<br/>
+<strong>Préstamos recibidos: {{ totalRecibidos }} € </strong><br/>
+*transferencias recibidas y aprobadas
+                                
+                            </p>
+                            
+                        </div>
+                        <div class="col-md-4 ">
+                            <canvas id="chart1" width="160" height="160" style="width: 160px; height: 160px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="row m1" style="margin-top:4% " >                       
                         <div class="col-md-8 col-md-offset-2">
                         	<p class="ubuntu"> 
                         		<strong>Ahora Madrid </strong> es una candidatura ciudadana para recuperar la ciudad de Madrid. Para poder financiarnos en el camino que nos queda hasta las elecciones no queremos depender del dinero de los bancos. Preferimos depender de la gente que cree que las cosas pueden ser de otra manera. Por eso necesitamos tu ayuda para contribuir a una campaña electoral independiente.
@@ -98,6 +112,37 @@
                  </div>
 			</div>   
 	
+<script>
+{% if totalRecibidos %}
+    recibido={{ totalRecibidos }}
+{% else %}  
+recibido=0;
+{% endif %} 
 
+ var data = [
+   {
+        value: recibido,
+        color: "#55B8AA",
+        highlight: "#55E8AA",
+        label: "Recibido"
+    },
+    {//Aquí hay que poner el valor total
+        value: 50000-recibido,
+        color:"#4A4A4A",
+        highlight: "#9A9A9A",
+        label: "Restante"
+    },
+]
+
+if(data[0].value > 0){
+    var ctx = $("#chart1").get(0).getContext("2d");
+    var myDoughnutChart = new Chart(ctx).Pie(data,options);
+    //$('#info-donaciones').empty().html("*Datos de transferencias completadas con éxito")
+}
+else{
+    $('#row-donaciones').hide()
+}
+
+</script>
 	
 {% endblock %}

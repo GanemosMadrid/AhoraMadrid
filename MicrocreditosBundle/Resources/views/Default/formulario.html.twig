@@ -31,10 +31,16 @@
 	        </div>
 	        <div class="row">                    	
 	            	<div class="col-md-12 ">
-	            		<h2> ¿Cuánto quieres prestar? </h2>
+	            		<h2> ¿Cuánto quieres prestar? </h2> <small> * El límite legal es de 10.000€ entre todas tus aportaciones. Si superas este límite no podemos aceptar la transferencia.
+						    	</small> 
 	            			{{ form_start(form, {'attr': {'role': 'form', 'id': 'form0'}}) }}
 						    {{ form_errors(form) }}
-						    <div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} </div>
+						    <div>{{ form_row(form.importe, {'attr': {'class': 'form-control'}, 'label': 'Importe'}) }} 
+						    
+						    </div>
+						    <div>
+						    	
+						    </div>
 					</div>
 			</div>
 		    <div class="row">

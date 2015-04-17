@@ -148,11 +148,12 @@ p.ultimopaso .titulo {
   border-radius: 5px;
   text-decoration: none;
   border: 1px #00A48C solid;
-  padding: 1em 1.4em;
-  margin: 1% 5%;
+  padding: 1em 1.4em 1em 1.4em;
+  margin: 1% 3%;
 }
 #formularios div.radio label {
   width: 75px;
+  padding-left: 0px;
 }
 #formularios div.radio:selected {
   box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.5);
