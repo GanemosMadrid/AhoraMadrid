@@ -20,7 +20,15 @@ class DefaultController extends Controller{
      * @Route("/", name="inicio")
      */
 	public function indexAction(){
-        return $this->render('AhoraMadridMicrocreditosBundle:Default:index.html.twig');
+		//Se buscan los créditos recibidos
+		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
+		$qbTotalRecibidos = $repository->createQueryBuilder('c')
+		->select('SUM(c.importe)')
+		->where('c.recibido = 1');
+		
+		$totalRecibidos = $qbTotalRecibidos->getQuery()->getSingleScalarResult();
+		
+        return $this->render('AhoraMadridMicrocreditosBundle:Default:index.html.twig', array('totalRecibidos' => $totalRecibidos));
     }
 	
 	/**
