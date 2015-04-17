@@ -22,7 +22,7 @@ class AdminController extends Controller{
 	
 	protected function controlSesion(Request $request, $roles) {
 		$sesion = $request->getSession();
-		dump($sesion);
+		
 		//Si no hay usuario en la sesión o el usuario no tiene rol, se sale (! compara nulo y vacío)
 		if($sesion->get('usuario') == null || $sesion->get('rol') == null){
 			return self::prohibido();
