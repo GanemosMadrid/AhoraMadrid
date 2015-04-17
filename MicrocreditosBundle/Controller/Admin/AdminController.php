@@ -9,8 +9,8 @@ use AhoraMadrid\MicrocreditosBundle\Entity\Usuario;
 
 class AdminController extends Controller{
 	
-	const ROL_ADMIN = 10;
-	const ROL_CONSULTA = 20;
+	const ROL_ADMIN = 20;
+	const ROL_CONSULTA = 10;
 	
 	protected function guardarUsuarioSesion(Request $request, $usuario){
 		if($usuario != null){

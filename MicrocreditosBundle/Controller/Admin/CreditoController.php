@@ -4,6 +4,7 @@ namespace AhoraMadrid\MicrocreditosBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Swift_Attachment;
 use AhoraMadrid\MicrocreditosBundle\Entity\Credito;
 
 class CreditoController extends AdminController{
@@ -87,6 +88,19 @@ class CreditoController extends AdminController{
 		$credito = $em->getRepository('AhoraMadridMicrocreditosBundle:Credito')->find($id);
 		$credito->setRecibido($recibir);
 		$em->flush();
+		
+		//Se envía el correo al que ha prestado
+		//Se manda el correo
+		$mailer = $this->get('mailer');
+		$message = $mailer->createMessage()
+		->setSubject('Ahora Madrid: Transferencia recibida')
+		->setFrom('contratos@ahoramadrid.org')
+		->setTo($credito->getCorreoElectronico())
+		->setBody(
+				$this->renderView('AhoraMadridMicrocreditosBundle:Admin:correo_transferencia_recibida.txt.twig'),
+				'text/plain'
+		);
+		$mailer->send($message);
 		
 		//Se guarda el mensaje
 		$sesion = $this->getRequest()->getSession();
