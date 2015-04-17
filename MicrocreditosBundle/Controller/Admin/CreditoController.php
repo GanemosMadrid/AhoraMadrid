@@ -48,7 +48,7 @@ class CreditoController extends AdminController{
 		//Paginación
 		$paginator = $this->get('knp_paginator');
 		$pagination = $paginator->paginate(
-				$creditos, $this->get('request')->query->get('page', 1), 2
+				$creditos, $this->get('request')->query->get('page', 1), 25
 		);
 	
 		return $this->render('AhoraMadridMicrocreditosBundle:Admin:listar_creditos.html.twig', array(
