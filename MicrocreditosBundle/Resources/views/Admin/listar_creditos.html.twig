@@ -6,13 +6,46 @@
         <p>{{ flashMessage }}</p>
     {% endfor %}
     
-	<h2>Totales</h2>
-	<h4>
-		Créditos prometidos: <span class="label label-primary">{{ pagination.getTotalItemCount }}</span>. Importe total {{ total }} €.
-	</h4>
-	<h4>
-		Créditos recibidos <span class="label label-primary">{{ recibidos }}</span>. Importe total {{ totalRecibidos }} €.
-	</h4>
+    <div class="row">
+    	<div class="col-md-4">
+			<h2>Totales</h2>
+			<h4>
+				Créditos prometidos: <span class="label label-primary">{{ pagination.getTotalItemCount }}</span>. Importe total {{ total }} €.
+			</h4>
+			<h4>
+				Créditos recibidos <span class="label label-primary">{{ recibidos }}</span>. Importe total {{ totalRecibidos }} €.
+			</h4>
+		</div>
+		<div class="col-md-8">
+			<h2>Campañas</h2>
+			<table id="listadoCampanias" class="table table-striped ">
+		        <tr>
+		            <th>Finalidad</th>
+		            <th>Concepto</th>
+		            <th>Objetivo</th>
+		            <th>Fase</th>
+		            <th>Activa</th>
+		            <th>Acciones</th>
+		        </tr>
+		        {% for campania in campanias %}
+			        <tr>
+			        	<td>{{ campania.finalidad }}</td>
+			        	<td>{{ campania.concepto }}</td>
+			        	<td>{{ campania.objetivo }}</td>
+			        	<td>{{ campania.fase }}</td>
+			        	<td>{% if campania.activa %}SI{% else %}NO{% endif %}</td>
+			        	<td>
+			        		{% if app.session.get('rol') == 20 %}
+			        			<a href="{{ path('editar_campania_microcreditos', {'id': campania.id}) }}">Modificar</a>
+			        		{% else %}
+			        			Ninguna
+			        		{% endif %}
+						</td>
+			        </tr>
+		        {% endfor %}
+		    </table>
+		</div>
+	</div>
 	<h2>Buscador de créditos</h2>
 	
 	{{ form_start(form, {'attr': {'role': 'form', 'id': 'formBuscador', 'novalidate': 'novalidate'}}) }}

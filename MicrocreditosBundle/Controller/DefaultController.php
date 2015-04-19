@@ -20,6 +20,10 @@ class DefaultController extends Controller{
      * @Route("/", name="inicio")
      */
 	public function indexAction(){
+		//Primero se buscan campañas activas
+		$repositoryCampanias = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:CampaniaMicrocreditos');
+		$campania = $repositoryCampanias->find(1);
+		
 		//Se buscan los créditos recibidos
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
 		$qbTotalRecibidos = $repository->createQueryBuilder('c')
@@ -28,7 +32,7 @@ class DefaultController extends Controller{
 		
 		$totalRecibidos = $qbTotalRecibidos->getQuery()->getSingleScalarResult();
 		
-        return $this->render('AhoraMadridMicrocreditosBundle:Default:index.html.twig', array('totalRecibidos' => $totalRecibidos));
+        return $this->render('AhoraMadridMicrocreditosBundle:Default:index.html.twig', array('totalRecibidos' => $totalRecibidos, 'campania' => $campania));
     }
 	
 	/**
@@ -36,6 +40,16 @@ class DefaultController extends Controller{
 	 * @Pdf()
      */
 	 public function formulario(Request $request){
+	 	//Primero se buscan campañas activas
+	 	$repositoryCampanias = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:CampaniaMicrocreditos');
+	 	$campania = $repositoryCampanias->find(1);
+	 	//$totalCampaniasActivas = $qbCampaniasActivas->getQuery()->getSingleScalarResult();
+	 	
+	 	//Si no hay campañas activas, no se muestra el formulario
+	 	if(!$campania->getActiva()){
+	 		return $this->render('AhoraMadridMicrocreditosBundle:Default:no_campania.html.twig');
+	 	}
+	 	
 		//Se carga el formulario
 		$credito = new Credito();
 		$form = $this->createForm(new CreditoType(), $credito);
@@ -101,7 +115,8 @@ class DefaultController extends Controller{
 		//Si no se ha enviado el formulario, se carga la pÃ¡gina con el formulario
 		return $this->render('AhoraMadridMicrocreditosBundle:Default:formulario.html.twig', array(
                     'form' => $form->createView(),
-					'totalRecibidos' => $totalRecibidos
+					'totalRecibidos' => $totalRecibidos,
+					'campania' => $campania
 		));
 	 }
 	 

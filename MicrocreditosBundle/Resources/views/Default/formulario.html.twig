@@ -14,7 +14,7 @@
 	            			<img src="{{ asset('bundles/ahoramadridmicrocreditos/images/logo2.png') }}" class="img-responsive" /> </a>
 	            	</div>
 	            </div>
-	            <div class="col-md-8 col-md-offset-1 col-xs-8"> <h3> El objetivo de la primera campaña de recaudación es de <strong>50.000 € </strong> </h3> </div>
+	            <div class="col-md-9 col-md-offset-1 col-xs-9"> <h3>El objetivo en esta fase de la campaña de recaudación es de <strong>{{ campania.objetivo|number_format(0, ',', '.') }} € </strong> </h3> </div>
 	        </div>
 	        <div class="row">
 	        	<div class="col-md-4 ">
@@ -25,7 +25,7 @@
 	        	</div>
 	        	<div class="col-md-4 ">
 	        		<p style="text-align:left; margin-top: 0px; padding-top:0px" id="info-donaciones">
-	        			Préstamos recibidos en esta fase: <br/> <strong>{{ totalRecibidos }} € </strong> 	        			<br/><small> *transferencias recibidas y aprobadas </small>
+	        			Préstamos recibidos en esta fase: <br/> <strong>{{ totalRecibidos|number_format(0, ',', '.') }} € </strong> 	        			<br/><small> *transferencias recibidas y aprobadas </small>
 	        		</p>
 	        	</div>
 	        </div>

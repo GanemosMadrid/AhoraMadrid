@@ -30,6 +30,10 @@ class CreditoController extends AdminController{
 	    $form->handleRequest($request);
 	    
 	    $data = $form->getData();
+	    
+	    //Se recogen las campañas de microcréditos
+	    $repoMicro = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:CampaniaMicrocreditos');
+	    $campanias = $repoMicro->findAll();
 		
 		//Se buscan los créditos
 		$repository = $this->getDoctrine()->getRepository('AhoraMadridMicrocreditosBundle:Credito');
@@ -92,7 +96,8 @@ class CreditoController extends AdminController{
 				'pagination' => $pagination,
 				'total' => $total,
 				'recibidos' => $recibidos,
-				'totalRecibidos' => $totalRecibidos
+				'totalRecibidos' => $totalRecibidos, 
+				'campanias' => $campanias
 		));
 	}
 	

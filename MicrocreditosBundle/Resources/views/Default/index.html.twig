@@ -33,8 +33,8 @@
                     <div class="row" style="margin-top:30px; text-align:center" id="row-donaciones"> 
                         <div class="col-md-4 col-md-offset-2">
                             <p style="text-align:right; margin-top: 20px; padding-top:0px; color: #333; font-size:18px; font-family: 'open sans'" >
-                                Fase 1. Objetivo 50.000€<br/>
-<strong>Préstamos recibidos: {{ totalRecibidos }} € </strong><br/>
+                                Fase {{ campania.fase }}. Objetivo {{ campania.objetivo|number_format(0, ',', '.') }} €<br/>
+<strong>Préstamos recibidos: {{ totalRecibidos|number_format(0, ',', '.') }} €</strong><br/>
 *transferencias recibidas y aprobadas
                                 
                             </p>
@@ -86,7 +86,7 @@
                     </div>
                     	<div class="col-md-8 col-md-offset-2">
                     		<h2> ¿Por qué necesitamos créditos ? </h2>
-                    		<p> Según todas las encuestas <span class="ahora">Ahora Madrid </span>va conseguir una gran representación en las próximas elecciones al Ayuntamiento de Madrid. Cada partido político tiene asignados una serie de fondos públicos en función de su representación. Nuestro problema es que para poder realizar una campaña electoral solvente necesitamos financiación antes de las elecciones. Por eso necesitamos tu ayuda para “adelantar” ese dinero sin tener que recurrir a préstamos bancarios
+                    		<p> Según todas las encuestas <span class="ahora">Ahora Madrid </span>va conseguir una gran representación en las próximas elecciones al Ayuntamiento de Madrid. Cada partido pol­tico tiene asignados una serie de fondos públicos en función de su representación. Nuestro problema es que para poder realizar una campaña electoral solvente necesitamos financiación antes de las elecciones. Por eso necesitamos tu ayuda para "adelantar" ese dinero sin tener que recurrir a préstamos bancarios
                     		</p>
                     	</div>
                     	<div class="col-md-8 col-md-offset-2">
@@ -126,7 +126,7 @@ recibido=0;
         highlight: "#55E8AA",
         label: "Recibido"
     },
-    {//Aquí hay que poner el valor total
+    {//AquÃ­ hay que poner el valor total
         value: 50000-recibido,
         color:"#4A4A4A",
         highlight: "#9A9A9A",
@@ -137,7 +137,7 @@ recibido=0;
 if(data[0].value > 0){
     var ctx = $("#chart1").get(0).getContext("2d");
     var myDoughnutChart = new Chart(ctx).Pie(data,options);
-    //$('#info-donaciones').empty().html("*Datos de transferencias completadas con éxito")
+    //$('#info-donaciones').empty().html("*Datos de transferencias completadas con ©xito")
 }
 else{
     $('#row-donaciones').hide()
