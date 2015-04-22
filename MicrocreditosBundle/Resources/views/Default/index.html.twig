@@ -4,14 +4,22 @@
  <div class="main-container">       
  			<div id="page1">
                 <div class="container">
-                    <div class="row" style="margin-top: 2% " >                       
-                        <div class="col-md-2 col-md-offset-5 col-xs-6 col-xs-offset-3">
+                    <div class="row" style="margin-top: 1% " >                       
+                        <div class="col-md-2  col-xs-3 ">
                         <img src="{{ asset('bundles/ahoramadridmicrocreditos/images/ahoraMadrid_logo_blanco.png') }}" class="img-responsive">
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 1%" >                       
+                    <div class="row" style="margin-top: 0%" >                       
+                        <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+                        	<h1 style="margin-top:0px; line-height:1.2em">Microcréditos</h1>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                        	<h1>Microcréditos</h1>
+                            <div class="videowrapper">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/rEFEudW0X4s?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                            </div>   
+
                         </div>
                     </div>
                     <div class="row" style="margin-top: 1%" > 
@@ -35,7 +43,7 @@
                             <p style="text-align:right; margin-top: 20px; padding-top:0px; color: #333; font-size:18px; font-family: 'open sans'" >
                                 Fase {{ campania.fase }}. Objetivo {{ campania.objetivo|number_format(0, ',', '.') }} €<br/>
 <strong>Préstamos recibidos: {{ totalRecibidos|number_format(0, ',', '.') }} €</strong><br/>
-*transferencias recibidas y aprobadas
+<small>*transferencias recibidas y aprobadas  </small>
                                 
                             </p>
                             
@@ -118,7 +126,8 @@
 {% else %}  
 recibido=0;
 {% endif %} 
-
+var restante={{ campania.objetivo}}-recibido
+if(restante<0) restante=0;
  var data = [
    {
         value: recibido,
@@ -126,8 +135,8 @@ recibido=0;
         highlight: "#55E8AA",
         label: "Recibido"
     },
-    {//AquÃ­ hay que poner el valor total
-        value: 100000-recibido,
+    {//Aqui hay que poner el valor que falta 
+        value: restante,
         color:"#4A4A4A",
         highlight: "#9A9A9A",
         label: "Restante"

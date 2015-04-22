@@ -25,7 +25,10 @@
 	        	</div>
 	        	<div class="col-md-4 ">
 	        		<p style="text-align:left; margin-top: 0px; padding-top:0px" id="info-donaciones">
-	        			Préstamos recibidos en esta fase: <br/> <strong>{{ totalRecibidos|number_format(0, ',', '.') }} € </strong> 	        			<br/><small> *transferencias recibidas y aprobadas </small>
+	        			Préstamos totales recibidos: <br/> <strong>{{ totalRecibidos|number_format(0, ',', '.') }} € </strong> 	        			<br/>
+						Objetivo de la fase {{ campania.fase }} : {{ campania.objetivo|number_format(0, ',', '.') }} € <br/> 
+	        			<small> *transferencias recibidas y aprobadas <br/> 
+	        			<small>Las transferencias pueden tardar hasta 2 días en recibirse. Luego son revisadas para comprobar que cumplen con la ley de financiación. Por eso hay un retraso desde que se hace la transferencia hasta que aparece reflejada. </small> </small>
 	        		</p>
 	        	</div>
 	        </div>
@@ -138,6 +141,9 @@
 recibido=0;
 {% endif %}	
 
+var restante={{ campania.objetivo}}-recibido
+if(restante<0) restante=0;
+
  var data = [
    {
         value: recibido,
@@ -146,7 +152,7 @@ recibido=0;
         label: "Recibido"
     },
     {//Aquí hay que poner el valor total
-        value: 100000-recibido,
+        value: restante,
         color:"#4A4A4A",
         highlight: "#9A9A9A",
         label: "Restante"
